@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+</head>
+<body>
+    <canvas id="c"></canvas>
+
+</body>
+
+<script type="module">
+	import * as THREE from './node_modules/three/build/three.module.js';
+    
+    function main() {
+        const canvas = document.querySelector('#c');
+        const renderer = new THREE.WebGLRenderer({antialias: true, canvas});
+        
+        // Set renderer size
+        renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+
+        // Camera setup
+        const fov = 75;
+        const aspect = 2// Calculate aspect ratio
+        const near = 0.1;
+        const far = 5;
+        const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+       
+        camera.position.z = 2;
+
+        const scene = new THREE.Scene();
+        
+        // Cube setup
+        const boxWidth = 1;
+        const boxHeight = 1;
+        const boxDepth = 1;
+        const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+        const material = new THREE.MeshBasicMaterial({ color: 0x44aa88 });
+        const cube = new THREE.Mesh(geometry, material);
+        
+        // Add cube to the scene
+        scene.add(cube);
+        
+        // Render the scene
+        renderer.render(scene, camera);
+    }
+    
+    main();
+</script>
+
+</html>
