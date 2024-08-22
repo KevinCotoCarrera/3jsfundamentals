@@ -1,0 +1,12 @@
+{
+  "name": "3jsfundamentals",
+  "version": "1.0.0",
+  "description": "three.js repo to cover the fundamentals tutorial on three.js website",
+  "main": "index.js",
+  "author": "Kevin Coto Carrera",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "three": "^0.167.1"
+  }
+}
